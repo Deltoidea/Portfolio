@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "deltoidea.github.io",
+    "title": "Cody Iordachescu",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
+    "text": "Email\n  \n  \n    \n     GitHub\n  \n  \n    \n     Resume\n  \n\n  \n  \n\n\n\n\n\nCubaris Murina\nThis is a Quarto website."
   },
   {
     "objectID": "about.html",
@@ -12,5 +12,61 @@
     "title": "About",
     "section": "",
     "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "Hobbies.html#terraria",
+    "href": "Hobbies.html#terraria",
+    "title": "Hobbies",
+    "section": "Terraria",
+    "text": "Terraria"
+  },
+  {
+    "objectID": "Hobbies.html#fitness",
+    "href": "Hobbies.html#fitness",
+    "title": "Hobbies",
+    "section": "Fitness",
+    "text": "Fitness\n\nHiking\nCamping\nWeights\nNutrition"
+  },
+  {
+    "objectID": "index.html#bugs-are-pretty-fun.-here-are-a-few-of-mine",
+    "href": "index.html#bugs-are-pretty-fun.-here-are-a-few-of-mine",
+    "title": "Cody Iordachescu",
+    "section": "",
+    "text": "Cubaris Murina"
+  },
+  {
+    "objectID": "index.html#about",
+    "href": "index.html#about",
+    "title": "Cody Iordachescu",
+    "section": "About Me",
+    "text": "About Me\nHi there! I’m Cody Iordachescu, a data enthusiast with a passion for leveraging insights to drive positive change. With a background in biology and bioinformatics, I bring a unique perspective to the world of data analysis. I’m fascinated by the intersection of science, technology, and creativity, and I thrive on solving complex problems and turning data into actionable insights."
+  },
+  {
+    "objectID": "index.html#skills",
+    "href": "index.html#skills",
+    "title": "Cody Iordachescu",
+    "section": "Skills & Expertise",
+    "text": "Skills & Expertise\n\nData Analysis: Experienced in Python, R, and SQL, with a knack for uncovering meaningful patterns and trends in data.\nBusiness Intelligence: Skilled in developing interactive dashboards and reports using tools like Power BI, empowering decision-makers with real-time insights.\nNetsuite Administration: Proficient in designing and implementing role-specific dashboards and reports in Netsuite, streamlining workflow processes.\nCommunication: Excellent communicator with a knack for distilling complex ideas into clear, concise messages.\nContinuous Learning: Committed to staying up-to-date with the latest developments in data science and technology, always eager to expand my skill set."
+  },
+  {
+    "objectID": "index.html#interests",
+    "href": "index.html#interests",
+    "title": "Cody Iordachescu",
+    "section": "Interests & Hobbies",
+    "text": "Interests & Hobbies\n\n\n\n\n\n\nOutside of the data world, you’ll often find me exploring the great outdoors, whether it’s hiking through scenic trails or setting up terrariums to bring a little piece of nature indoors. I’m also a fitness enthusiast, passionate about staying active and maintaining a healthy lifestyle. When I’m not analyzing data or hitting the gym, I enjoy experimenting with new recipes in the kitchen and immersing myself in Japanese culture through language and cuisine.\n\n\n## Get in Touch {#contact}\n\n\n\nFeel free to reach out to me via my link above. I’m always open to new opportunities, collaborations, or just a friendly chat!"
+  },
+  {
+    "objectID": "index.html#contact",
+    "href": "index.html#contact",
+    "title": "Cody Iordachescu",
+    "section": "## Get in Touch",
+    "text": "## Get in Touch\nFeel free to reach out to me via email at codyiorda@gmail.com or connect with me on GitHub. I’m always open to new opportunities, collaborations, or just a friendly chat!"
+  },
+  {
+    "objectID": "index.html#introduction",
+    "href": "index.html#introduction",
+    "title": "Cody Iordachescu",
+    "section": "Introduction",
+    "text": "Introduction\n================================================================================"
   }
 ]

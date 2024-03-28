@@ -1,11 +1,59 @@
 ---
-title: "deltoidea.github.io"
+title: "Cody Iordachescu"
+resources: Media/Home/resume.pdf
+image: Media/Home/EditedGlassesCloseupSmall.jpg
+about:
+  template: trestles
+  image-width: 15em
+  image-shape: round
+  links: 
+    - text: Email
+      icon: envelope
+      href: mailto:codyiorda@gmail.com
+    - text: GitHub
+      icon: github
+      href: https://github.com/Deltoidea/
+    - text: Resume
+      icon: file-text
+      href: resume.pdf
+  id: isopod
 ---
 
+
+
+
+:::{#isopod}
+## Bugs are pretty fun. Here are a few of mine:
+
+![Cubaris Murina](Media/Hobbies/isopods.cubaris.murina.papaya.png){width="50%" style="border-radius: 70%;"}
+:::
 This is a Quarto website.
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+## Introduction
 
-```{r}
-1 + 1
-```
+================================================================================
+
+
+
+About Me {#about}
+--------------------------------------------------------------------------------
+Hi there! I'm Cody Iordachescu, a data enthusiast with a passion for leveraging insights to drive positive change. With a background in biology and bioinformatics, I bring a unique perspective to the world of data analysis. I'm fascinated by the intersection of science, technology, and creativity, and I thrive on solving complex problems and turning data into actionable insights.
+
+Skills & Expertise {#skills}
+--------------------------------------------------------------------------------
+- **Data Analysis:** Experienced in Python, R, and SQL, with a knack for uncovering meaningful patterns and trends in data.
+- **Business Intelligence:** Skilled in developing interactive dashboards and reports using tools like Power BI, empowering decision-makers with real-time insights.
+- **Netsuite Administration:** Proficient in designing and implementing role-specific dashboards and reports in Netsuite, streamlining workflow processes.
+- **Communication:** Excellent communicator with a knack for distilling complex ideas into clear, concise messages.
+- **Continuous Learning:** Committed to staying up-to-date with the latest developments in data science and technology, always eager to expand my skill set.
+
+## Interests & Hobbies {#interests}
+
+--------------------------------------------------------------------------------
+Outside of the data world, you'll often find me exploring the great outdoors, whether it's hiking through scenic trails or setting up terrariums to bring a little piece of nature indoors. I'm also a fitness enthusiast, passionate about staying active and maintaining a healthy lifestyle. When I'm not analyzing data or hitting the gym, I enjoy experimenting with new recipes in the kitchen and immersing myself in Japanese culture through language and cuisine.
+
+## Get in Touch {#contact}
+
+--------------------------------------------------------------------------------
+Feel free to reach out to me via my link above. I'm always open to new opportunities, collaborations, or just a friendly chat!
+
