@@ -1,5 +1,21 @@
 ---
 title: "Hobbies"
+image: EditedGlassesCloseupSmall.jpg
+about:
+  template: trestles
+  image-width: 15em
+  image-shape: round
+  links: 
+    - text: Email
+      icon: envelope
+      href: mailto:codyiorda@gmail.com
+    - text: GitHub
+      icon: github
+      href: https://github.com/Deltoidea/
+    - text: Resume
+      icon: file-text
+      href: resume.pdf
+  id: isopod
 ---
 
 ## Macro Photography

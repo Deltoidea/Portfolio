@@ -23,15 +23,15 @@ about:
 
 
 :::{#isopod}
-## Bugs are pretty fun. Here are a few of mine:
 
-![Cubaris Murina](Media/Hobbies/isopods.cubaris.murina.papaya.png){width="50%" style="border-radius: 70%;"}
+
+![Cubaris Murina](Media/Hobbies/isopods.cubaris.murina.papaya.png){width="70%" style="border-radius: 60%;"}
 :::
-This is a Quarto website.
+
 
 ## Introduction
 
-================================================================================
+--------------------------------------------------------------------------------
 
 
 
@@ -41,19 +41,22 @@ Hi there! I'm Cody Iordachescu, a data enthusiast with a passion for leveraging 
 
 Skills & Expertise {#skills}
 --------------------------------------------------------------------------------
-- **Data Analysis:** Experienced in Python, R, and SQL, with a knack for uncovering meaningful patterns and trends in data.
-- **Business Intelligence:** Skilled in developing interactive dashboards and reports using tools like Power BI, empowering decision-makers with real-time insights.
-- **Netsuite Administration:** Proficient in designing and implementing role-specific dashboards and reports in Netsuite, streamlining workflow processes.
-- **Communication:** Excellent communicator with a knack for distilling complex ideas into clear, concise messages.
+- **Data Analysis:** Experienced in Python, R, and SQL, with an ablility to relay meaningful patterns and trends in data.
+- **Business Intelligence:** Skilled in developing interactive dashboards and reports using tools like Power BI, empowering decision-makers with real-time insights. 
+- **NetSuite Administration:** Proficient in designing and implementing role-specific dashboards and reports in NetSuite, streamlining workflow processes.
+- **Communication:** Excellent communicator with experience distilling complex technical requirements into clear, actionable next steps.
 - **Continuous Learning:** Committed to staying up-to-date with the latest developments in data science and technology, always eager to expand my skill set.
 
 ## Interests & Hobbies {#interests}
 
 --------------------------------------------------------------------------------
+
 Outside of the data world, you'll often find me exploring the great outdoors, whether it's hiking through scenic trails or setting up terrariums to bring a little piece of nature indoors. I'm also a fitness enthusiast, passionate about staying active and maintaining a healthy lifestyle. When I'm not analyzing data or hitting the gym, I enjoy experimenting with new recipes in the kitchen and immersing myself in Japanese culture through language and cuisine.
+
 
 ## Get in Touch {#contact}
 
 --------------------------------------------------------------------------------
+
 Feel free to reach out to me via my link above. I'm always open to new opportunities, collaborations, or just a friendly chat!
 
