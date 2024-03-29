@@ -15,7 +15,7 @@ about:
       href: https://github.com/Deltoidea/
     - text: Resume
       icon: file-text
-      href: Portfolio/resume.pdfresume.pdf
+      href: Portfolio/resume.pdf
   id: isopod
 ---
 
