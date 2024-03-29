@@ -15,7 +15,7 @@ about:
       href: https://github.com/Deltoidea/
     - text: Resume
       icon: file-text
-      href: resume.pdf
+      href: Media/Home/resume.pdf
   id: isopod
 quarto:
   styles:
