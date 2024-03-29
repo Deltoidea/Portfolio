@@ -1,5 +1,6 @@
 ---
 title: "Portfolio"
+resources: Media/Home/resume.pdf
 image: Media/Skills/heirarchy.png
 about:
   template: trestles
