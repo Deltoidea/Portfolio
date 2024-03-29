@@ -17,6 +17,9 @@ about:
       icon: file-text
       href: Portfolio/resume.pdf
   id: isopod
+quarto:
+  styles:
+    - styles.css
 ---
 
 # Skills
