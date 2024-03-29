@@ -1,6 +1,6 @@
 ---
 title: "Cody Iordachescu"
-resources: Media/Home/resume.pdf
+resources: resume.pdf
 image: Media/Home/EditedGlassesCloseupSmall.jpg
 about:
   template: trestles
@@ -15,7 +15,7 @@ about:
       href: https://github.com/Deltoidea/
     - text: Resume
       icon: file-text
-      href: Media/Home/resume.pdf
+      href: Portfolio/resume.pdf
   id: isopod
 quarto:
   styles:
