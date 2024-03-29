@@ -1,0 +1,339 @@
+---
+title: "Portfolio"
+image: Media/Skills/heirarchy.png
+about:
+  template: trestles
+  image-width: 15em
+  image-shape: round
+  links: 
+    - text: Email
+      icon: envelope
+      href: mailto:codyiorda@gmail.com
+    - text: GitHub
+      icon: github
+      href: https://github.com/Deltoidea/
+    - text: Resume
+      icon: file-text
+      href: resume.pdf
+  id: isopod
+---
+
+# Skills
+
+## Power BI Developer
+- Proficient in Power BI development with 2 years of experience.
+- Skilled in creating interactive dashboards, reports, and data visualizations to facilitate data-driven decision-making.
+:::{.image-row}
+![Image 1](Media/Skills/creditdash.png)
+![Image 2](Media/Skills/kpitrends.png)
+![Image 3](Media/Skills/selfoverview.png)
+:::
+
+## Python
+
+- Experienced Python programmer with 2 years of hands-on experience.
+- Capable of creating ETL pipelines, automating tasks, and performing data analysis using Python.
+
+## R
+- Proficient in R programming language with 4 years of experience.
+- Skilled in data transformation, visualization, modeling and documentation using R.
+
+## SQL
+- Experienced in SQL with 3 years of practical experience.
+- Competent in writing complex queries, database management, and data manipulation using SQL.
+
+Here is an anonymized sample of a query I wrote to aid operations in complying with their SLA standards via a Power BI report I developed:
+```{.scrollable-sql}
+SELECT DISTINCT
+    C.Id AS Id,
+    C.CompanyName AS CompanyName,
+    C.ApiId AS ApiId,
+    C.RepId AS RepId,
+    C.RepName AS RepName,
+    C.Status AS Status,
+    C.Sequence AS Sequence,
+    C.StatusDate AS StatusDate,
+    C.StatusChangeDate AS StatusChangeDate,
+    C.StatusNotes AS StatusNotes,
+    C.Is_Latest_Status AS Is_Latest_Status,
+    C.StatusChangeDate AS StatusChangeDate,
+    C.WithinOneDay AS WithinOneDay,
+    C.SameDayTime AS SameDayTime,
+    C.FirstDayTimeIfNotSameDay AS FirstDayTimeIfNotSameDay,
+    C.LastDayTimeIfNotSameDay AS LastDayTimeIfNotSameDay,
+    C.Betweenhours AS Betweenhours,
+    C.current_datetime AS current_datetime,
+    C.WorkingHours AS WorkingHours,
+    C.SLA_Achieved AS SLA_Achieved,
+    SUM(Is_Within_Date) OVER(
+        PARTITION BY C.ApiId, C.Status
+    ) AS CallCount,
+    Datediff(HOUR, C.StatusDate, C.StatusChangeDate) AS Hours_since_status,
+    CASE
+        WHEN NSO.SlaCadence = 2 THEN 'No'
+        WHEN NSO.SlaCadence = 1 THEN 'Yes'
+        ELSE 'N/A'
+    END AS SLA_Cadence,
+    CASE
+        WHEN NSO.ERCStatus = 1 THEN 'Waiting on Documents'
+        WHEN NSO.ERCStatus = 2 THEN 'Documents Received'
+        WHEN NSO.ERCStatus = 3 THEN 'WOD - Tier 1'
+        WHEN NSO.ERCStatus = 4 THEN 'Full Documents Received'
+        WHEN NSO.ERCStatus = 5 THEN 'Calculating - Tier 1'
+        WHEN NSO.ERCStatus = 6 THEN 'Calculating - Tier 2'
+        WHEN NSO.ERCStatus = 7 THEN 'WOD - Tier 2'
+        WHEN NSO.ERCStatus = 8 THEN 'Ready for Review - Tier 2'
+        WHEN NSO.ERCStatus = 9 THEN 'Ready for Review - Tier 3'
+        WHEN NSO.ERCStatus = 10 THEN 'Gov. Orders Check'
+        WHEN NSO.ERCStatus = 11 THEN 'Ready for Signature'
+        WHEN NSO.ERCStatus = 12 THEN 'Out for Signature'
+        WHEN NSO.ERCStatus = 13 THEN 'Signed'
+        WHEN NSO.ERCStatus = 14 THEN 'Filed'
+        WHEN NSO.ERCStatus = 15 THEN 'Paid - Upfront'
+        WHEN NSO.ERCStatus = 16 THEN 'Paid - Backend'
+        WHEN NSO.ERCStatus = 17 THEN 'Did Not Qualify'
+        WHEN NSO.ERCStatus = 18 THEN 'No Longer Interested'
+        WHEN NSO.ERCStatus = 19 THEN 'Non Responsive'
+        WHEN NSO.ERCStatus = 20 THEN 'Acct Ref - Don''t contact directly'
+        WHEN NSO.ERCStatus = 21 THEN 'Final Attempt Review'
+        ELSE 'N/A'
+    END AS ERCStatus,
+    CASE
+        WHEN NSO.ERCSubStatus = 1 THEN 'Call 1'
+        WHEN NSO.ERCSubStatus = 2 THEN 'Call 2'
+        WHEN NSO.ERCSubStatus = 3 THEN 'Call 3'
+        WHEN NSO.ERCSubStatus = 4 THEN 'Call 4'
+        WHEN NSO.ERCSubStatus = 5 THEN 'Call 5'
+        WHEN NSO.ERCSubStatus = 6 THEN 'Call 6'
+        WHEN NSO.ERCSubStatus = 7 THEN 'Call 7'
+        WHEN NSO.ERCSubStatus = 8 THEN 'Call Non-Responsive'
+        WHEN NSO.ERCSubStatus = 9 THEN 'Scheduled'
+        WHEN NSO.ERCSubStatus = 10 THEN 'Follow up Call 1'
+        WHEN NSO.ERCSubStatus = 11 THEN 'Follow up Call 2'
+        WHEN NSO.ERCSubStatus = 12 THEN 'Follow up Call 3'
+        WHEN NSO.ERCSubStatus = 13 THEN 'Follow up Call 4'
+        WHEN NSO.ERCSubStatus = 14 THEN 'Follow up Non-Responsive'
+        WHEN NSO.ERCSubStatus = 15 THEN 'Blank'
+        ELSE 'N/A'
+    END AS ERCSubStatus,
+    C.AgentName AS Outreach_Agent
+FROM
+    (SELECT
+        E.*,
+        IIF(E.StatusDate = MAX(E.StatusDate) OVER(
+            PARTITION BY E.ApiId
+        ), 1, 0) AS Is_Latest_Status,
+        IIF(E.Status = 'WOD - Tier 1' AND E.WorkingHours <= 72, 1,
+            IIF(E.Status = 'Documents Received' AND E.WorkingHours <= 2, 1,
+                IIF(E.Status = 'Full Documents Received' AND E.WorkingHours <= 2, 1,
+                    IIF(E.Status = 'Calculating - Tier 1' AND E.WorkingHours <= 24, 1,
+                        IIF(E.Status = 'Calculating - Tier 2' AND E.WorkingHours <= 6, 1,
+                            IIF(E.Status = 'Gov. Orders Check' AND E.WorkingHours <= 72, 1,
+                                IIF(E.Status = 'Ready for Review - Tier 2' AND E.WorkingHours <= 5, 1,
+                                    IIF(E.Status = 'Ready for Review - Tier 3' AND E.WorkingHours <= 5, 1,
+                                        IIF(E.Status = 'Ready For Signature' AND E.WorkingHours <= 5, 1,
+                                            IIF(E.Status LIKE '%Attempt%' AND E.WorkingHours <= 24, 1, 0)
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    )
+                )
+            )
+        ) AS SLA_Achieved,
+        IIF(calls.CreatedDate >= E.StatusDate AND calls.CreatedDate <= E.StatusChangeDate, 1, 0) AS Is_Within_Date,
+        Outreach.AgentName AS Outreach_Agent
+    FROM
+        (SELECT
+            D.*,
+            IIF(D.WithinOneDay = 1, D.SameDayTime, (D.FirstDayTimeIfNotSameDay + D.Betweenhours + D.LastDayTimeIfNotSameDay)) AS WorkingHours
+        FROM
+            (SELECT
+                C.*,
+                IIF((DATENAME(WEEKDAY, C.StatusDate) = 'Saturday' AND DATEDIFF(DAY, C.StatusDate, C.StatusChangeDate) < 2), 1,
+                    IIF(CAST(C.StatusDate AS DATE) <> CAST(C.StatusChangeDate AS DATE), 0, 1)) AS WithinOneDay,
+                IIF(DATENAME(WEEKDAY, C.StatusDate) IN ('Saturday', 'Sunday'), 0,
+                    IIF((CAST(DATEPART(HOUR, C.StatusDate) AS FLOAT) + DATEPART(MINUTE, C.StatusDate) / 60.00) > 17, 0,
+                        IIF((CAST(DATEPART(HOUR, C.StatusDate) AS FLOAT) + DATEPART(MINUTE, C.StatusDate) / 60.00) < 8,
+                            IIF((CAST(DATEPART(HOUR, C.StatusChangeDate) AS FLOAT) + DATEPART(MINUTE, StatusChangeDate) / 60.00) - 8 < 0, 0,
+                                (CAST(DATEPART(HOUR, C.StatusChangeDate) AS FLOAT) + DATEPART(MINUTE, StatusChangeDate) / 60.00) - 8),
+                            (((CAST(DATEPART(HOUR, C.StatusChangeDate) AS FLOAT) + DATEPART(MINUTE, C.StatusChangeDate) / 60.00) -
+                                (CAST(DATEPART(HOUR, C.StatusDate) AS FLOAT) + DATEPART(MINUTE, StatusDate) / 60.00)))))
+                ) AS SameDayTime,
+                IIF(DATENAME(WEEKDAY, C.StatusDate) IN ('Saturday', 'Sunday'), 0,
+                    IIF((CAST(DATEPART(HOUR, C.StatusDate) AS FLOAT) + DATEPART(MINUTE, C.StatusDate) / 60.00) > 17, 0,
+                        IIF((CAST(DATEPART(HOUR, C.StatusDate) AS FLOAT) + DATEPART(MINUTE, C.StatusDate) / 60.00) < 8, (17 - 8),
+                            (((CAST(DATEPART(HOUR, C.StatusDate) AS FLOAT) + DATEPART(MINUTE, C.StatusDate) / 60.00) - 8 - 9) * (-1)))))
+                ) AS FirstDayTimeIfNotSameDay,
+                IIF(DATENAME(WEEKDAY, C.StatusChangeDate) IN ('Saturday', 'Sunday'), 0,
+                    IIF((CAST(DATEPART(HOUR, C.StatusChangeDate) AS FLOAT) + DATEPART(MINUTE, C.StatusChangeDate) / 60.00) > 17, (17 - 8),
+                        IIF((CAST(DATEPART(HOUR, C.StatusChangeDate) AS FLOAT) + DATEPART(MINUTE, C.StatusChangeDate) / 60.00) < 8, 0,
+                            (((CAST(DATEPART(HOUR, C.StatusChangeDate) AS FLOAT) + DATEPART(MINUTE, C.StatusChangeDate) / 60.00) - 8))))) AS LastDayTimeIfNotSameDay,
+                IIF((DATEDIFF(DAY, C.StatusDate, C.StatusChangeDate)
+                        - DATEDIFF(WW, C.StatusDate, C.StatusChangeDate) * 2
+                        - (CASE WHEN DATENAME(DW, C.StatusDate) = 'Sunday' THEN 1 ELSE 0 END)
+                        - (CASE WHEN DATENAME(DW, C.StatusChangeDate) = 'Saturday' THEN 1 ELSE 0 END)) * 9 > 0,
+                    (DATEDIFF(DAY, C.StatusDate, C.StatusChangeDate)
+                        - DATEDIFF(WW, C.StatusDate, C.StatusChangeDate) * 2
+                        - (CASE WHEN DATENAME(DW, C.StatusDate) = 'Sunday' THEN 1 ELSE 0 END)
+                        - (CASE WHEN DATENAME(DW, C.StatusChangeDate) = 'Saturday' THEN 1 ELSE 0 END)) * 9 - 9,
+                    (DATEDIFF(DAY, C.StatusDate, C.StatusChangeDate)
+                        - DATEDIFF(WW, C.StatusDate, C.StatusChangeDate) * 2
+                        - (CASE WHEN DATENAME(DW, C.StatusDate) = 'Sunday' THEN 1 ELSE 0 END)
+                        - (CASE WHEN DATENAME(DW, C.StatusChangeDate) = 'Saturday' THEN 1 ELSE 0 END)) * 9) AS Betweenhours,
+                CONVERT(datetime, SWITCHOFFSET(GETDATE(), DATEPART(TZOFFSET, getdate() AT TIME ZONE 'Mountain Standard Time'))) AS current_datetime
+            FROM
+                (SELECT DISTINCT
+                    'https://app.tax.com/#/client/' + cast(B.Id as varchar) AS Id,
+                    B.CompanyName AS CompanyName,
+                    B.ApiId AS ApiId,
+                    B.RepId AS RepId,
+                    B.RepName AS RepName,
+                    B.Status AS Status,
+                    B.[Sequence] AS Sequence,
+                    CONVERT(datetime, SWITCHOFFSET(B.StatusDate, DATEPART(TZOFFSET, getdate() AT TIME ZONE 'Mountain Standard Time'))) AS StatusDate,
+                    IIF(LEAD(B.StatusDate) OVER(
+                        PARTITION BY B.ApiId
+                        ORDER BY B.StatusDate
+                    ) IS NULL, CONVERT(datetime, SWITCHOFFSET(GETDATE(), DATEPART(TZOFFSET, getdate() AT TIME ZONE 'Mountain Standard Time'))),  LEAD(B.StatusDate) OVER(
+                        PARTITION BY B.ApiId
+                        ORDER BY B.StatusDate
+                    )) AS StatusChangeDate
+                FROM
+                    (SELECT
+                        A.*
+                    FROM
+                        (SELECT
+                            ISNULL(co.Id, 0) AS Id,
+                            co.Name AS CompanyName,
+                            co.ApiId AS ApiId,
+                            st.Name AS Status,
+                            emp.Id AS RepId,
+                            CASE
+                                WHEN cc.SourceId = 10 THEN 'LENDIO'
+                                ELSE concat(emp.FirstName, ' ', emp.LastName)
+                            END AS RepName,
+                            MAX(csh.StatusDate) AS StatusDate,
+                            st.[Sequence] AS [Sequence]
+                        FROM
+                            ContactStatusHistory csh
+                            JOIN Companies co ON csh.CompanyId = co.Id
+                            JOIN Statuses st ON csh.StatusId = st.Id
+                            JOIN CollectiveContacts cc ON co.CampaignContactId = cc.Id
+                            LEFT JOIN Employees emp ON cc.RepId = emp.Id
+                        WHERE
+                            ISNULL(csh.CompanyId, '') <> ''
+                            AND ISNULL(co.ApiId, '') <> ''
+                            AND st.Name NOT IN ('Waiting on Documents')
+                            AND ISNULL(co.ApiId, '') NOT IN (SELECT 
+                                                                ISNULL(co.ApiId, '')
+                                                            FROM Companies co
+                                                            JOIN Statuses st ON st.Id = co.StatusId
+                                                            WHERE st.Name IN ('Did Not Qualify',
+                                                                                'No longer interested',
+                                                                                'Non Responsive'))
+                        GROUP BY
+                            ISNULL(co.Id, 0),
+                            co.Name,
+                            co.ApiId,
+                            st.Name,
+                            emp.Id,
+                            CASE
+                                WHEN cc.SourceId = 10 THEN 'LENDIO'
+                                ELSE concat(emp.FirstName, ' ', emp.LastName)
+                            END,
+                            st.[Sequence]
+
+                        UNION
+
+                        SELECT DISTINCT
+                            ISNULL(co.Id, 0) AS Id,
+                            co.Name AS CompanyName,
+                            co.ApiId AS ApiId,
+                            'Waiting on Documents' AS Status,
+                            emp.Id AS RepId,
+                            CASE
+                                WHEN cc.SourceId = 10 THEN 'LENDIO'
+                                ELSE concat(emp.FirstName, ' ', emp.LastName)
+                            END AS RepName,
+                            IIF(co.StatusDate IS NOT NULL AND co.StatusId = 22, co.StatusDate, 
+                                IIF(MIN(co.CreatedDate) OVER( 
+                                    PARTITION BY co.ApiId
+                                ) > MIN(co.StatusDate) OVER( 
+                                    PARTITION BY co.ApiId
+                                ), DATEADD(MINUTE, -5, MIN(co.StatusDate) OVER( 
+                                    PARTITION BY co.ApiId
+                                )), MIN(co.CreatedDate) OVER( 
+                                    PARTITION BY co.ApiId
+                                ))) AS StatusDate,
+                            1 AS Sequence
+                        FROM
+                            Companies co
+                            JOIN Statuses st on st.Id = co.StatusId
+                            LEFT JOIN ContactStatusHistory csh ON csh.CompanyId = co.Id
+                            LEFT JOIN CollectiveContacts cc ON co.CampaignContactId = cc.Id
+                            LEFT JOIN Employees emp ON cc.RepId = emp.Id
+                        WHERE
+                            ISNULL(co.ApiId, '') <> ''
+                            AND st.Id NOT IN (38, 39, 41)
+                    ) A
+                ) B
+            ) C
+        ) D
+    LEFT JOIN (
+        SELECT DISTINCT
+            cc.*,
+            esi.ExternalId,
+            con.Phone,
+            co.ApiId
+        FROM
+            CallCenterTable cc
+            JOIN Employees e ON e.id = cc.Agent
+            LEFT JOIN CollectiveContacts con ON con.NSCustomerId = cc.CustomerId
+            LEFT JOIN ExternalSystemIdentities esi ON esi.CampaignContactId = con.Id
+            LEFT JOIN Companies co on co.CampaignContactId = con.Id
+            LEFT JOIN CallCenterTable cont on cont.CustomerId = con.NSCustomerId
+            LEFT JOIN Employees emp on emp.Id = cont.Agent
+        WHERE
+            cc.CallDirection <> 'Inbound'
+            AND co.ApiId IS NOT NULL
+    ) calls ON calls.ApiId = D.ApiId
+    LEFT JOIN (
+        SELECT DISTINCT
+            nsc.*,
+            e.FirstName + ' ' + e.LastName AgentName,
+            nso.ApiId
+        FROM
+            nsCustomers nsc
+            LEFT JOIN Employees e ON e.Id = nsc.OutreachAgent
+            LEFT JOIN Opps nso on nso.CustomerId = nsc.Id
+        WHERE 
+            e.Id <> 0
+            AND nso.ApiId IS NOT NULL
+    ) Outreach ON Outreach.ApiId = D.ApiId
+WHERE
+    C.[Status] <> 'Qualification Approval'
+
+```
+
+## NetSuite Administration
+- Experienced in NetSuite Administration with 2 years of experience.
+- Skilled in managing NetSuite accounts, customizing workflows, and providing user support.
+
+## Excellent Communication
+- Strong verbal and written communication skills, demonstrated through effective collaboration with teams and stakeholders.
+- Proficient in conveying complex technical concepts in a clear and understandable manner.
+
+## Proactive Problem Solver
+- Proven ability to proactively identify and solve problems, contributing to efficient project execution and successful outcomes.
+
+## Conversational Japanese
+- Fluent in conversational Japanese, enabling effective communication in professional and social settings.
+
+<!-- ![Data Analysis](path/to/your/image.png) -->
+<!-- *Caption: Visualizing data trends using Python and Power BI.* -->
+
+<!-- ![NetSuite Administration](path/to/your/second_image.png) -->
+<!-- *Caption: Managing NetSuite workflows for enhanced business operations.* -->
+

@@ -3,12 +3,14 @@ project:
   output-dir: docs 
 
 website:
-  title: "C.A. Iordachescu"
+  title: "C. Iordachescu"
   navbar:
     left:
       - href: index.qmd
         text: Home
-      - Hobbies.qmd
+      - Skills.qmd
+      # - href: Hobbies.qmd
+      #   text: Interests
 
 format:
   html:

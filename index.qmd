@@ -17,17 +17,25 @@ about:
       icon: file-text
       href: resume.pdf
   id: isopod
+quarto:
+  styles:
+    - styles.css
 ---
 
 
 
 
-:::{#isopod}
+<!-- :::{#isopod} -->
 
 
-![Cubaris Murina](Media/Hobbies/isopods.cubaris.murina.papaya.png){width="70%" style="border-radius: 60%;"}
-:::
+<!-- ![Cubaris Murina](Media/Hobbies/isopods.cubaris.murina.papaya.png){width="70%" style="border-radius: 60%;"} -->
+<!-- ::: -->
 
+<!-- :::{.image-row} -->
+<!-- ![Image 1](Media/Hobbies/Krabby.jpg) -->
+<!-- ![Image 2](Media/Hobbies/isopods.cubaris.murina.papaya.jpg) -->
+<!-- ![Image 3](Media/Hobbies/mr.Snek.png) -->
+<!-- ::: -->
 
 ## Introduction
 
@@ -58,5 +66,5 @@ Outside of the data world, you'll often find me exploring the great outdoors, wh
 
 --------------------------------------------------------------------------------
 
-Feel free to reach out to me via my link above. I'm always open to new opportunities, collaborations, or just a friendly chat!
+Feel free to reach out to me via my links above. I'm always open to new opportunities, collaborations, or just a friendly chat!
 
