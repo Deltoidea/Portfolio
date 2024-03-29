@@ -1,6 +1,6 @@
 ---
 title: "Portfolio"
-resources: Media/Home/resume.pdf
+resources: resume.pdf
 image: Media/Skills/heirarchy.png
 about:
   template: trestles
@@ -15,7 +15,7 @@ about:
       href: https://github.com/Deltoidea/
     - text: Resume
       icon: file-text
-      href: Media/Home/resume.pdf
+      href: resume.pdf
   id: isopod
 ---
 
