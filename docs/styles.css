@@ -1,18 +1,30 @@
 /* css styles */
 .image-row {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
   
 .image-row img {
-    width: calc(33.33% - 10px); /* Adjust as needed */
+    width: calc(70% - 10px); /* Adjust as needed */
     height: auto;
 }
 
 .scrollable-sql {
   overflow: auto;
   max-height: 300px; /* Adjust height as needed */
-  border: 1px solid #ccc; /* Optional: add a border for visual separation */
+  max-width: 50%; /* Adjust width as needed */
+  border: 1px solid #221730; /* Optional: add a border for visual separation */
   padding: 10px; /* Optional: add padding for better readability */
-  background-color: #f9f9f9; /* Optional: add a background color for better contrast */
+  background-color: #beaed4; /* Optional: add a background color for better contrast */
+}
+
+}
+.left-aligned-image {
+    width: 30%;
+    float: left;
+    margin-left: 25%; /* Optional: Add margin for spacing between images */
+    
+.content-wrapper {
+    max-width: 40%;
+    margin: 0 auto; /* Center the content horizontally */
 }

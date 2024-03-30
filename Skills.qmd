@@ -1,5 +1,6 @@
 ---
 title: "Portfolio"
+toc: True
 resources: resume.pdf
 image: Media/Skills/heirarchy.png
 about:
@@ -22,32 +23,58 @@ quarto:
     - styles.css
 ---
 
+
+
+
+
+
+
+--------------------------------------------------------------------------------
+
 # Skills
 
+--------------------------------------------------------------------------------
+
+
 ## Power BI Developer
-- Proficient in Power BI development with 2 years of experience.
-- Skilled in creating interactive dashboards, reports, and data visualizations to facilitate data-driven decision-making.
-:::{.image-row}
-![Image 1](Media/Skills/creditdash.png)
-![Image 2](Media/Skills/kpitrends.png)
-![Image 3](Media/Skills/selfoverview.png)
-:::
+
+-   Proficient in Power BI development with 2 years of experience.
+-   Skilled in creating interactive dashboards, reports, and data visualizations to facilitate data-driven decision-making.
+
+--------------------------------------------------------------------------------
+
+![Revenue Summary Dashboard](Media/Skills/creditdash.png){.left-aligned-image}
+
+
+![KPI Trends Report](Media/Skills/kpitrends.png){.left-aligned-image}
+
+
+![Sales Pipeline Landing Page](Media/Skills/selfoverview.png){.left-aligned-image}
+
+--------------------------------------------------------------------------------
 
 ## Python
 
-- Experienced Python programmer with 2 years of hands-on experience.
-- Capable of creating ETL pipelines, automating tasks, and performing data analysis using Python.
+-   Experienced Python programmer with 2 years of hands-on experience.
+-   Capable of creating ETL pipelines, automating tasks, and performing data analysis using Python.
+
+--------------------------------------------------------------------------------
 
 ## R
-- Proficient in R programming language with 4 years of experience.
-- Skilled in data transformation, visualization, modeling and documentation using R.
+
+-   Proficient in R programming language with 4 years of experience.
+-   Skilled in data transformation, visualization, modeling and documentation using R.
+
+--------------------------------------------------------------------------------
 
 ## SQL
-- Experienced in SQL with 3 years of practical experience.
-- Competent in writing complex queries, database management, and data manipulation using SQL.
+
+-   Experienced in SQL with 3 years of practical experience.
+-   Competent in writing complex queries, database management, and data manipulation using SQL.
 
 Here is an anonymized sample of a query I wrote to aid operations in complying with their SLA standards via a Power BI report I developed:
-```{.scrollable-sql}
+
+``` scrollable-sql
 SELECT DISTINCT
     C.Id AS Id,
     C.CompanyName AS CompanyName,
@@ -318,26 +345,75 @@ FROM
     ) Outreach ON Outreach.ApiId = D.ApiId
 WHERE
     C.[Status] <> 'Qualification Approval'
-
 ```
 
+--------------------------------------------------------------------------------
+
 ## NetSuite Administration
-- Experienced in NetSuite Administration with 2 years of experience.
-- Skilled in managing NetSuite accounts, customizing workflows, and providing user support.
+
+-   Experienced in NetSuite Administration with 2 years of experience.
+-   Skilled in managing NetSuite accounts, customizing workflows, and providing user support.
+
+--------------------------------------------------------------------------------
 
 ## Excellent Communication
-- Strong verbal and written communication skills, demonstrated through effective collaboration with teams and stakeholders.
-- Proficient in conveying complex technical concepts in a clear and understandable manner.
+
+-   Strong verbal and written communication skills, demonstrated through effective collaboration with teams and stakeholders.
+-   Proficient in conveying complex technical concepts in a clear and understandable manner.
+
+--------------------------------------------------------------------------------
 
 ## Proactive Problem Solver
-- Proven ability to proactively identify and solve problems, contributing to efficient project execution and successful outcomes.
 
-## Conversational Japanese
-- Fluent in conversational Japanese, enabling effective communication in professional and social settings.
+-   Proven ability to proactively identify and solve problems, contributing to efficient project execution and successful outcomes.
+
+--------------------------------------------------------------------------------
+
+## Other Skills:
+
+### Analytical Skills
+- Gather, analyze, and interpret complex data from various sources to identify trends, patterns, and insights.
+
+### Business Acumen
+- Understand business processes, operations, and industry trends to provide valuable insights and recommendations.
+
+### Stakeholder Management
+- Engage with stakeholders, understand their requirements, and manage expectations throughout the project lifecycle.
+
+### Requirement Elicitation
+- Gather and document business requirements through interviews, workshops, and other elicitation techniques.
+
+### Data Analysis
+- Manipulate, clean, and analyze large datasets using tools such as SQL, R, and python software.
+
+### Process Improvement
+- Identify inefficiencies and streamline business processes using methodologies like kaizen.
+
+### Project Management
+- Plan, execute, and monitor project activities using project management principles and methodologies.
+
+### Critical Thinking
+- Evaluate information objectively, challenge assumptions, and make informed decisions based on evidence and analysis.
+
+### Collaboration
+- Work effectively in cross-functional teams, facilitate discussions, and drive consensus on project objectives.
+
+### Documentation
+- Document requirements, specifications, process flows, and other project artifacts using standard templates and tools including github.
+
+### Technical Skills
+- Understand basic IT concepts and systems to communicate effectively with technical teams.
+
+### Adaptability
+- Adapt to changing priorities, project requirements, and organizational dynamics in a fast-paced environment.
+
+### Attention to Detail
+- Ensure accuracy and completeness in all aspects of analysis, documentation, and deliverables.
 
 <!-- ![Data Analysis](path/to/your/image.png) -->
+
 <!-- *Caption: Visualizing data trends using Python and Power BI.* -->
 
 <!-- ![NetSuite Administration](path/to/your/second_image.png) -->
-<!-- *Caption: Managing NetSuite workflows for enhanced business operations.* -->
 
+<!-- *Caption: Managing NetSuite workflows for enhanced business operations.* -->

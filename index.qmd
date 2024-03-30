@@ -2,6 +2,7 @@
 title: "Cody Iordachescu"
 resources: resume.pdf
 image: Media/Home/EditedGlassesCloseupSmall.jpg
+toc: true
 about:
   template: trestles
   image-width: 15em
@@ -23,48 +24,58 @@ quarto:
 ---
 
 
-
-
 <!-- :::{#isopod} -->
 
-
 <!-- ![Cubaris Murina](Media/Hobbies/isopods.cubaris.murina.papaya.png){width="70%" style="border-radius: 60%;"} -->
+
 <!-- ::: -->
 
 <!-- :::{.image-row} -->
+
 <!-- ![Image 1](Media/Hobbies/Krabby.jpg) -->
+
 <!-- ![Image 2](Media/Hobbies/isopods.cubaris.murina.papaya.jpg) -->
+
 <!-- ![Image 3](Media/Hobbies/mr.Snek.png) -->
+
 <!-- ::: -->
 
 ## Introduction
 
---------------------------------------------------------------------------------
+------------------------------------------------------------------------
 
+## About Me {#about}
 
-
-About Me {#about}
---------------------------------------------------------------------------------
 Hi there! I'm Cody Iordachescu, a data enthusiast with a passion for leveraging insights to drive positive change. With a background in biology and bioinformatics, I bring a unique perspective to the world of data analysis. I'm fascinated by the intersection of science, technology, and creativity, and I thrive on solving complex problems and turning data into actionable insights.
 
-Skills & Expertise {#skills}
---------------------------------------------------------------------------------
-- **Data Analysis:** Experienced in Python, R, and SQL, with an ablility to relay meaningful patterns and trends in data.
-- **Business Intelligence:** Skilled in developing interactive dashboards and reports using tools like Power BI, empowering decision-makers with real-time insights. 
-- **NetSuite Administration:** Proficient in designing and implementing role-specific dashboards and reports in NetSuite, streamlining workflow processes.
-- **Communication:** Excellent communicator with experience distilling complex technical requirements into clear, actionable next steps.
-- **Continuous Learning:** Committed to staying up-to-date with the latest developments in data science and technology, always eager to expand my skill set.
+## Skills & Expertise {#skills}
+
+-   **Data Analysis:** Experienced in Python, R, and SQL, with an ablility to relay meaningful patterns and trends in data.
+-   **Business Intelligence:** Skilled in developing interactive dashboards and reports using tools like Power BI, empowering decision-makers with real-time insights.
+-   **NetSuite Administration:** Proficient in designing and implementing role-specific dashboards and reports in NetSuite, streamlining workflow processes.
+-   **Communication:** Excellent communicator with experience distilling complex technical requirements into clear, actionable next steps.
+-   **Continuous Learning:** Committed to staying up-to-date with the latest developments in data science and technology, always eager to expand my skill set.
 
 ## Interests & Hobbies {#interests}
 
---------------------------------------------------------------------------------
+------------------------------------------------------------------------
 
-Outside of the data world, you'll often find me exploring the great outdoors, whether it's hiking through scenic trails or setting up terrariums to bring a little piece of nature indoors. I'm also a fitness enthusiast, passionate about staying active and maintaining a healthy lifestyle. When I'm not analyzing data or hitting the gym, I enjoy experimenting with new recipes in the kitchen and immersing myself in Japanese culture through language and cuisine.
 
+:::{.image-row}
+
+![](Media/Hobbies/3galAquarium.jpg)
+
+![](Media/Hobbies/SquigglyTerrarium.jpg)
+
+![](Media/Hobbies/Squareterrariumshelf.jpg)
+
+:::
+
+
+Outside of the data world, you'll often find me exploring the great outdoors, whether it's hiking through scenic trails or setting up terrariums or aquariums to bring a little piece of nature indoors. I'm also a fitness enthusiast, passionate about staying active and maintaining a healthy lifestyle. When I'm not analyzing data or hitting the gym, I enjoy experimenting with new recipes in the kitchen and immersing myself in Japanese culture through language and cuisine.
 
 ## Get in Touch {#contact}
 
---------------------------------------------------------------------------------
+------------------------------------------------------------------------
 
 Feel free to reach out to me via my links above. I'm always open to new opportunities, collaborations, or just a friendly chat!
-
