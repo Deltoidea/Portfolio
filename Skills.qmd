@@ -1,6 +1,6 @@
 ---
 title: "Portfolio"
-toc: True
+toc: False
 resources: resume.pdf
 image: Media/Skills/heirarchy.png
 about:
