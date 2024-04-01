@@ -12,7 +12,7 @@
 .scrollable-sql {
   overflow: auto;
   max-height: 300px; /* Adjust height as needed */
-  max-width: 50%; /* Adjust width as needed */
+  max-width: 80%; /* Adjust width as needed */
   border: 1px solid #221730; /* Optional: add a border for visual separation */
   padding: 10px; /* Optional: add padding for better readability */
   background-color: #beaed4; /* Optional: add a background color for better contrast */
@@ -20,9 +20,10 @@
 
 }
 .left-aligned-image {
-    width: 30%;
-    float: left;
-    margin-left: 25%; /* Optional: Add margin for spacing between images */
+    width: calc(70% - 10px);
+    float: none;
+    margin-right: 5%;
+    margin-left: 5%;/* Optional: Add margin for spacing between images */
     
 .content-wrapper {
     max-width: 40%;

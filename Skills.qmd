@@ -43,13 +43,17 @@ quarto:
 
 --------------------------------------------------------------------------------
 
+
+:::{.image-row}
 ![Revenue Summary Dashboard](Media/Skills/creditdash.png){.left-aligned-image}
 
 
 ![KPI Trends Report](Media/Skills/kpitrends.png){.left-aligned-image}
 
 
+
 ![Sales Pipeline Landing Page](Media/Skills/selfoverview.png){.left-aligned-image}
+:::
 
 --------------------------------------------------------------------------------
 
