@@ -1,0 +1,102 @@
+---
+title: "Space Junk"
+author: "Cody Iordachescu"
+date: "2024-04-23"
+categories:
+  - TidyTuesday
+  - DataAnalysis
+---
+
+### Intro
+
+This is technically my first post as I started this EDA project a little while ago. The R community has an ongoing community event called tidy tuesday where a dataset is published to the tidytuesday github repo and are analyzed in just about a million different ways by as many community members. I like to go into these challenges blind and then compare what steps I've taken with other community members.
+
+This weeks data was a 5 column dataset containing information about objects launched into space along with what entity is responsible and what year it was launched. Below is a sample of the data.
+
+```{r, warning=FALSE, message=FALSE}
+library(tidyverse)
+library(tidytuesdayR)
+library(gt)
+library(htmltools)
+set.seed(123)
+#Load the data
+# tuesdata <- tidytuesdayR::tt_load('2024-04-23')
+# 
+# outer_space_objects <- tuesdata$outer_space_objects
+#write_csv(outer_space_objects,file = "outer_space_objects.csv")
+outer_space_objects <- read_csv("Data/SpaceJunk/outer_space_objects.csv")
+
+outer_space_objects |> 
+  slice_sample(n = 10) |> 
+  gt()
+
+```
+
+### Exploration
+
+here is a bit of exploration of the data:
+
+```{r}
+scrollable_table <- outer_space_objects |> 
+  group_by(Entity) |> 
+  summarize(total_years = n_distinct(Year),n = sum(num_objects)) |> 
+  arrange(-total_years) |> 
+  gt() |> 
+  as_raw_html()  |> 
+  div(style = "overflow-x: auto; overflow-y: auto; max-height: 200px; width: 100%;") |> 
+  as.character()
+
+# Print the scrollable table
+HTML(scrollable_table)
+```
+
+Looking at the output, there are 110 distinct entities, some of which have a very low number of entries. Something I'd like to see is a rank chart of the top 5 by number of space objects over time. Below I'll create that plot:
+
+### Plot Creation
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE, comment=TRUE}
+
+# make a top 5
+top5 <- outer_space_objects |> 
+  filter(!Entity  %in% c('World', 'European Space Agency')) |> 
+  group_by(Entity) |> 
+  summarise(total = sum(num_objects)) |> 
+  arrange(-total) |> 
+  pull(Entity) |> head(5)
+
+finalorder <- outer_space_objects |> 
+  filter(!Entity  %in% c('World', 'European Space Agency'),
+         Entity %in% top5,
+         Year == max(Year)) |> 
+  arrange(-num_objects) |> 
+  pull(Entity) |> 
+  factor()
+  
+
+  
+
+```
+
+```{r, message=FALSE, echo=FALSE, warning=FALSE}
+
+plot <- outer_space_objects |> 
+  filter(!Entity  %in% c('World', 'European Space Agency'),
+         Entity %in% top5) |>
+  group_by(Year) |>
+  arrange(-num_objects) |> 
+  mutate(Rank = row_number()) |>
+  ggplot(aes(x = Year, y = factor(Rank), color = factor(Entity, levels = finalorder))) +
+  geom_line( aes(group = Entity), linewidth = 1, alpha = .1) +
+  geom_point(shape = 15, linewidth = 1.5) + 
+  geom_text(aes(label = ifelse(Year == max(Year), Entity, "")), vjust= 2,hjust="inward") +
+  theme_minimal() +
+  scale_y_discrete(limits = rev) +
+  theme(legend.position = "none", plot.margin = unit(c(.5, 1, .5, .5), "in")) + 
+  labs(y = "Rank", title = "Top 5 producers of space objects ranked by year")
+#ggsave(plot, height = 6, width = 10, device = "png", filename = "Data/SpaceJunk/Rankplot.png")
+
+
+```
+
+![Rank Plot](Data/SpaceJunk/Rankplot.png)
+

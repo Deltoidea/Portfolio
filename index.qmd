@@ -23,7 +23,6 @@ quarto:
     - styles.css
 ---
 
-
 <!-- :::{#isopod} -->
 
 <!-- ![Cubaris Murina](Media/Hobbies/isopods.cubaris.murina.papaya.png){width="70%" style="border-radius: 60%;"} -->
@@ -60,17 +59,13 @@ Hi there! I'm Cody Iordachescu, a data enthusiast with a passion for leveraging 
 
 ------------------------------------------------------------------------
 
-
-:::{.image-row}
-
+::: image-row
 ![](Media/Hobbies/3galAquarium.jpg)
 
 ![](Media/Hobbies/SquigglyTerrarium.jpg)
 
 ![](Media/Hobbies/Squareterrariumshelf.jpg)
-
 :::
-
 
 Outside of the data world, you'll often find me exploring the great outdoors, whether it's hiking through scenic trails or setting up terrariums or aquariums to bring a little piece of nature indoors. I'm also a fitness enthusiast, passionate about staying active and maintaining a healthy lifestyle. When I'm not analyzing data or hitting the gym, I enjoy experimenting with new recipes in the kitchen and immersing myself in Japanese culture through language and cuisine.
 

@@ -1,0 +1,137 @@
+---
+title: "Tidy Tuesday"
+author: "Cody Iordachescu"
+date: "2024-05-22"
+draft: true
+categories:
+  - TidyTuesday
+  - DataAnalysis
+---
+
+### Data source:
+```{r, eval=FALSE}
+library(tidyverse)
+library(tidytuesdayR)
+library(gt)
+# tuesdata <- tidytuesdayR::tt_load('2024-05-21')
+# emissions <- tuesdata[1] |> as.data.frame()
+# write_csv(emissions, file = "Data/Emissions/Emissions.csv")
+emissions <- read_csv("Data/Emissions/Emissions.csv") |> drop_na()
+
+glimpse(emissions) |> as.data.frame() |> saveRDS("Data/Emissions/emissionglimpse")
+head(emissions) |> as.data.frame() |>  saveRDS("Data/Emissions/emissionhead")
+```
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(knitr)
+library(gt)
+# emissionglimpse <- read_rds("Data/Emissions/emissionglimpse")
+# emissionglimpse |> kable()
+emissions <- read_csv("Data/Emissions/Emissions.csv") |> 
+  drop_na() |> 
+  select(emissions.total_emissions_MtCO2e, emissions.parent_type, emissions.commodity, emissions.year)
+emissionhead <- read_rds("Data/Emissions/emissionhead")
+emissionhead |> kable()
+```
+
+
+```{r, eval=FALSE}
+plot <- emissions |> 
+  filter(emissions.year >= max(emissions.year)- 40) |> 
+  group_by(emissions.commodity, emissions.year) |> 
+  summarise(emissions = sum(emissions.total_emissions_MtCO2e)) |> 
+  ggplot(aes(x = emissions.year, y = emissions, fill = emissions.commodity, color = emissions.commodity)) + 
+  geom_density(stat = "identity") +
+  facet_wrap(~emissions.commodity) +
+  labs(title = "40 years of CO2 Emissions by Commodity type", x = "Year", y = "Emissions in Millions of Tons CO2") +
+  theme_minimal() +
+  theme(legend.position = "none", axis.text.x = element_text(angle = 45))
+plot
+ 
+
+```
+![](Data/Emissions/emissionplot.png)
+### Split data into test and train
+### Create a model with the training data and make predictions using the test data kept in reserve.
+```{r}
+library(caret)
+set.seed(123)
+emissions$emissions.parent_type |> unique()
+emissions |> 
+  ggplot(aes(x = emissions.year, y = emissions.total_emissions_MtCO2e, color = emissions.parent_type)) +
+  geom_point(alpha = .1)
+
+
+train_indices <- createDataPartition(emissions$emissions.total_emissions_MtCO2e, p = 0.7, list = FALSE)
+
+train <- emissions[train_indices, ]
+test <- emissions[-train_indices, ]
+
+colnames(train)
+model <- glm(data = train, formula = "emissions.total_emissions_MtCO2e~.",
+            na.action = na.omit)
+step(model)
+summary(model)
+predictions <- model |> predict(test) 
+
+RMSE(predictions, test$emissions.total_emissions_MtCO2e)
+R2(predictions, test$emissions.total_emissions_MtCO2e)
+```
+Looking at the model,
+
+### State Owned entities
+```{r}
+state <- emissions |> 
+  filter(emissions.parent_type == "State-owned Entity") |> 
+  select(emissions.total_emissions_MtCO2e, emissions.commodity, emissions.year)
+train <- state[train_indices, ]
+test <- state[-train_indices, ]
+
+colnames(train)
+model <- glm(data = train, formula = "emissions.total_emissions_MtCO2e~.",
+            na.action = na.omit)
+
+summary(model)
+predictions <- model |> predict(test) 
+
+RMSE(predictions, test$emissions.total_emissions_MtCO2e)
+R2(predictions, test$emissions.total_emissions_MtCO2e)
+```
+
+### Investor-owned entities
+```{r}
+investor <- emissions |> 
+  filter(emissions.parent_type == "Investor-owned Company") |> 
+  select(emissions.total_emissions_MtCO2e, emissions.commodity, emissions.year)
+train <- investor[train_indices, ]
+test <- investor[-train_indices, ]
+
+colnames(train)
+model <- glm(data = train, formula = "emissions.total_emissions_MtCO2e~.",
+            na.action = na.omit)
+
+summary(model)
+predictions <- model |> predict(test) 
+
+RMSE(predictions, test$emissions.total_emissions_MtCO2e)
+R2(predictions, test$emissions.total_emissions_MtCO2e)
+```
+### Nation State entities
+```{r}
+nationstate <- emissions |> 
+  filter(emissions.parent_type == "Nation State") |> 
+  select(emissions.total_emissions_MtCO2e, emissions.commodity, emissions.year)
+train <- nationstate[train_indices, ]
+test <- nationstate[-train_indices, ]
+
+colnames(train)
+model <- glm(data = train, formula = "emissions.total_emissions_MtCO2e~.",
+            na.action = na.omit)
+
+summary(model)
+predictions <- model |> predict(test) 
+
+RMSE(predictions, test$emissions.total_emissions_MtCO2e)
+R2(predictions, test$emissions.total_emissions_MtCO2e)
+```

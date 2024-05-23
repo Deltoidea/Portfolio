@@ -9,8 +9,8 @@ website:
       - href: index.qmd
         text: Home
       - Skills.qmd
-      # - href: Hobbies.qmd
-      #   text: Interests
+      - href: posts.qmd
+        text: Posts
 
 format:
   html:
